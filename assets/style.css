@@ -1,0 +1,23 @@
+:root {
+    font-family: sans-serif;
+}
+
+.highscores {
+    display: inline;
+    justify-content: left;
+}
+
+.timer {
+    display: inline;
+    float: right;
+}
+
+main {
+    margin: auto;
+    text-align: center;
+    width: 40%;
+}
+
+.hide {
+    display: none;
+}
