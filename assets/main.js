@@ -68,22 +68,20 @@ function gameover () {
     showScore.innerHTML = "Correct Answers: " + correctAnswer;
     var showTime = document.getElementById('showtime');
     showTime.innerHTML = "Your Score: " + (count + 11);
-    stopTimer()
 }
 
 function createTimer () {
+    count--;
     timerElement.textContent = count;
     if (count <= 0) {
-        stopTimer();
-    } else {
-        count--
+        gameover();
     }
 }
 
-function stopTimer () {
-    clearInterval(timer);
-    gameover();
-}
+// function stopTimer () {
+//     clearInterval(timer);
+//     gameover();
+// }
 
 console.log(questions);
 
@@ -91,22 +89,13 @@ startbutton.onclick = startQuiz ();
 
 var timeLeft = count
 
-var submitButton = document.getElementById("submit");
-submitButton.addEventListener("click", addToPage);
-console.log(submitButton);
+// var submitButton = document.getElementById("submit");
+// submitButton.addEventListener("click", addToPage);
+// console.log(submitButton);
 
-function addToPage () {
-    var initialInput = document.getElementById("initials");
-    var initialInput = initialInput.value;
-    localStorage.setItem("initials", JSON.stringify(initialInput + " - " + (count + 11)));
-    localStorage.append(highScores);
-}
+// function addToPage () {
+//     var initialInput = document.getElementById("initials");
+//     var initialInput = initialInput.value;
+//     localStorage.setItem("initials", JSON.stringify(initialInput + " - " + (count + 11)));
+//     localStorage.append(highScores);
 
-//Take time remaining on timer, make that the score
-//Display score on game over screen
-//Prompt user to enter intials
-//Create an array from the scores and initials in the JavaScript file for the other page
-//append that array into the HTML for the high scores page
-//store the array in local storage so it can be saved
-//create back button with JavaScript
-//Clear the array using the clear button
