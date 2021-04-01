@@ -1,18 +1,19 @@
 var currentQuestionIndex = 0;
 // var time = questions.length * 15;
-var count = 75
+var count = 75;
 
-var startbutton = document.querySelector("#startbutton")
-var questionpart = document.querySelector("#questions")
-var timerElement = document.querySelector("#time")
-var questionContent = document.querySelector("#choices")
-var highScores = document.getElementById('highscorebox')
+var startbutton = document.querySelector("#startbutton");
+var questionpart = document.querySelector("#questions");
+var timerElement = document.querySelector("#time");
+var questionContent = document.querySelector("#choices");
+var highScores = document.getElementById('highscorebox');
+var inputElement = document.getElementById('initials');
 
-var correctAnswer = 0
+var correctAnswer = 0;
 var timer;
 
 function startQuiz () {
-    var startscreen = document.querySelector("#startscreen")
+    var startscreen = document.querySelector("#startscreen");
     startscreen.setAttribute ('class', "hide");
     questionpart.removeAttribute ("class");
     getthequestions ()
@@ -22,7 +23,7 @@ function startQuiz () {
 
 function getthequestions () {
     var currentQuestion = questions[currentQuestionIndex];
-    var titleElement = document.querySelector("#questiontitle")
+    var titleElement = document.querySelector("#questiontitle");
     titleElement.textContent =  currentQuestion.title;
     console.log(titleElement);
     questionContent.innerHTML = "";
@@ -36,23 +37,26 @@ function getthequestions () {
 
        console.log(userChoice);
 
-       userChoice.onclick = selectAnswer
+       userChoice.onclick = selectAnswer;
     }
     
 }
 
 function selectAnswer() {
-    var displayCorrect = document.getElementById("displayed")
+    var displayCorrect = document.getElementById("displayed");
 
     if (this.value === questions[currentQuestionIndex].answer) {
-        displayCorrect.innerHTML = "Correct"
+        displayCorrect.innerHTML = "Correct";
         correctAnswer = correctAnswer + 1;
     } else {
-        displayCorrect.innerHTML = "Incorrect"
-        count = count -10;
+        displayCorrect.innerHTML = "Incorrect";
+        count = count - 10;
+        if (count <= 0){
+            count=0
+        }
     }
 
-    currentQuestionIndex++
+    currentQuestionIndex++;
     if (currentQuestionIndex === questions.length-0) {
         gameover();
     } else {
@@ -67,7 +71,8 @@ function gameover () {
     var showScore = document.getElementById("showscore");
     showScore.innerHTML = "Correct Answers: " + correctAnswer;
     var showTime = document.getElementById('showtime');
-    showTime.innerHTML = "Your Score: " + (count + 11);
+    showTime.innerHTML = "Your Score: " + (count);
+    stopTimer()
 }
 
 function createTimer () {
@@ -78,24 +83,30 @@ function createTimer () {
     }
 }
 
-// function stopTimer () {
-//     clearInterval(timer);
-//     gameover();
-// }
+function stopTimer () {
+    clearInterval(timer);
+}
 
 console.log(questions);
 
-startbutton.onclick = startQuiz ();
+startbutton.addEventListener("click", startQuiz);
 
 var timeLeft = count
 
-// var submitButton = document.getElementById("submit");
-// submitButton.addEventListener("click", addToPage);
-// console.log(submitButton);
+var submitButton = document.getElementById("submit");
+submitButton.addEventListener("click", submitScore);
+console.log(submitButton);
 
-// function addToPage () {
-//     var initialInput = document.getElementById("initials");
-//     var initialInput = initialInput.value;
-//     localStorage.setItem("initials", JSON.stringify(initialInput + " - " + (count + 11)));
-//     localStorage.append(highScores);
 
+function submitScore () {
+    var initials = inputElement.value;
+
+    var scores =JSON.parse(localStorage.getItem("scores")) || [];
+    var newScores = {
+        initials:initials,
+        score:count
+    }
+
+    scores.push(newScores);
+    localStorage.setItem("scores", JSON.stringify(scores));
+}

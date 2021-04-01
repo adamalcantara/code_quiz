@@ -1,5 +1,25 @@
-var initials = localStorage.getItem("initials");
-var highScores = document.getElementById("highscorebox");
-console.log(initials);
+var highScores = JSON.parse(localStorage.getItem("scores"));
+var highScoreEl = document.getElementById("highscorebox");
+// highScoreEl.append(highScore[0].initials)
+// highScoreEl.append(highScore[0].score)
 
-highScores.append(initials);
+// var string = JSON.stringify(initials);
+
+console.log(highScores);
+
+// highScoreEl.append(highScores);
+//for loop over array
+
+for (let index = 0; index < highScores.length; index++) {
+    //creating elements for the users' scores
+
+    //this is the save point
+    var initials = document.createElement("li")
+    var score = document.createElement("li")
+    //add score and initials for each element
+    initials.textContent = highScores[index].initials;
+    score.textContent = highScores[index].score;
+    //add them to the page
+    highScoreEl.append(initials)
+    highScoreEl.append(score)
+}
