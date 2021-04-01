@@ -15,11 +15,11 @@ for (let index = 0; index < highScores.length; index++) {
 
     //this is the save point
     var initials = document.createElement("li")
-    var score = document.createElement("li")
+    // var score = document.createElement("li")
     //add score and initials for each element
-    initials.textContent = highScores[index].initials;
-    score.textContent = highScores[index].score;
+    initials.textContent = highScores[index].initials + " - " + highScores[index].score;
+    // score.textContent = ;
     //add them to the page
     highScoreEl.append(initials)
-    highScoreEl.append(score)
+    // highScoreEl.append(score)
 }
