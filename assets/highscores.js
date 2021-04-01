@@ -1,5 +1,7 @@
 var highScores = JSON.parse(localStorage.getItem("scores"));
 var highScoreEl = document.getElementById("highscorebox");
+var clearScores = document.getElementById("clearscores");
+
 // highScoreEl.append(highScore[0].initials)
 // highScoreEl.append(highScore[0].score)
 
@@ -23,3 +25,10 @@ for (let index = 0; index < highScores.length; index++) {
     highScoreEl.append(initials)
     // highScoreEl.append(score)
 }
+
+function clearAll () {
+    localStorage.clear();
+    highScoreEl.remove(initials);
+}
+
+clearScores.addEventListener("click", clearAll);
