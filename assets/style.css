@@ -2,14 +2,30 @@
     font-family: sans-serif;
 }
 
+header { 
+    background-color: #416fa3;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
 .highscores {
-    display: inline;
+    
+    position: absolute;
     justify-content: left;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 15px;
 }
 
 .timer {
     display: inline;
     float: right;
+    color: white;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-top: 15px;
 }
 
 main {
@@ -20,4 +36,53 @@ main {
 
 .hide {
     display: none;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #416fa3;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+#startbutton{
+    border: none;
+    background-color: #416fa3;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#startbutton:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #416fa3;
+}
+
+button {
+    color: white;
+    border: none;
+    background-color: #416fa3;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
 }

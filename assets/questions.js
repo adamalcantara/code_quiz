@@ -26,7 +26,7 @@ var questions = [
     {
         title: "What should you never call JavaScript in a job interview?",
         options: ["Coffee", "Java", "Anything but JavaScript", "All of the above"],
-        answer: "JavaScript"
+        answer: "All of the above"
     },
 
 ]

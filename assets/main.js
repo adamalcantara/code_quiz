@@ -51,6 +51,7 @@ function selectAnswer() {
     } else {
         displayCorrect.innerHTML = "Incorrect";
         count = count - 10;
+        timerElement.textContent = count;
         if (count <= 0){
             count=0
         }

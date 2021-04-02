@@ -1,0 +1,41 @@
+:root {
+    font-family: sans-serif;
+}
+
+body {
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #416fa3;
+}
+
+#highscorebox {
+    margin-bottom: 20px;
+    
+}
+
+a {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    background-color: #416fa3;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#clearscores {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    background-color: #416fa3;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
