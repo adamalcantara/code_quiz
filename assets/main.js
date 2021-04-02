@@ -2,8 +2,8 @@ var currentQuestionIndex = 0;
 // var time = questions.length * 15;
 var count = 75;
 
-var startbutton = document.querySelector("#startbutton");
-var questionpart = document.querySelector("#questions");
+var startButton = document.querySelector("#startbutton");
+var questionPart = document.querySelector("#questions");
 var timerElement = document.querySelector("#time");
 var questionContent = document.querySelector("#choices");
 var highScores = document.getElementById('highscorebox');
@@ -13,15 +13,15 @@ var correctAnswer = 0;
 var timer;
 
 function startQuiz () {
-    var startscreen = document.querySelector("#startscreen");
-    startscreen.setAttribute ('class', "hide");
-    questionpart.removeAttribute ("class");
-    getthequestions ()
+    var startScreen = document.querySelector("#startscreen");
+    startScreen.setAttribute ('class', "hide");
+    questionPart.removeAttribute ("class");
+    getTheQuestions ()
     timer = setInterval(createTimer, 1000)
     
 }
 
-function getthequestions () {
+function getTheQuestions () {
     var currentQuestion = questions[currentQuestionIndex];
     var titleElement = document.querySelector("#questiontitle");
     titleElement.textContent =  currentQuestion.title;
@@ -59,16 +59,16 @@ function selectAnswer() {
 
     currentQuestionIndex++;
     if (currentQuestionIndex === questions.length-0) {
-        gameover();
+        gameOver();
     } else {
-        getthequestions();
+        getTheQuestions();
     }
 }
 
-function gameover () {
+function gameOver () {
     var endScreen = document.querySelector("#endscreen");
     endScreen.removeAttribute('class');
-    questionpart.setAttribute('class', 'hide');
+    questionPart.setAttribute('class', 'hide');
     var showScore = document.getElementById("showscore");
     showScore.innerHTML = "Correct Answers: " + correctAnswer;
     var showTime = document.getElementById('showtime');
@@ -80,7 +80,7 @@ function createTimer () {
     count--;
     timerElement.textContent = count;
     if (count <= 0) {
-        gameover();
+        gameOver();
     }
 }
 
@@ -90,7 +90,7 @@ function stopTimer () {
 
 console.log(questions);
 
-startbutton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
 var timeLeft = count
 
