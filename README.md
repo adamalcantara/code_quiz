@@ -1,5 +1,7 @@
 # JavaScript Code Quiz
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 https://adamalcantara.github.io/code_quiz/
 
 Built with HTML, CSS, and JavaScript
